@@ -4,34 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_gravity="center"
-    tools:context=".SignUpLogin"
+    android:background="@color/background_color"
     android:gravity="center"
+    android:orientation="vertical"
     android:paddingLeft="50dp"
     android:paddingRight="50dp"
-    android:background="@color/background_color">
+    tools:context=".SignUpLogin">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="@string/sign_up"
-        android:layout_gravity="center"/>
+        android:textColor="@color/white_greyish"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/username"/>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="50dp">
+        <!-- This view adds space between the elements !-->
+    </View>
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:hint="@string/username"
+        android:textSize="16dp"
+        android:textColorHint="@color/white_greyish" />
 
     <Button
+        android:id="@+id/submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/submit"
-        android:text="@string/submit"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:text="@string/submit"/>
 
 </LinearLayout>

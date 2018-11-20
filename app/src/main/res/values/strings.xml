@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">TheRunner</string>
-    <string name="sign_up">Sign Up </string>
+    <string name="sign_up">SIGN UP </string>
     <string name="submit">Submit</string>
     <string name="username">Enter username</string>
     <string name="login">LOGIN </string>
     <string name="new_user">Or are you new to TheRunner? </string>
+    <string name="start">START</string>
 </resources>
