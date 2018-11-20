@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TheRunner</string>
+    <string name="sign_up">Sign up to use the app! </string>
+    <string name="submit">Submit</string>
+    <string name="username">Enter username</string>
+    <string name="login">Login to use the app! </string>
+</resources>
