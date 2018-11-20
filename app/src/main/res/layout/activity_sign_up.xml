@@ -8,6 +8,8 @@
     android:layout_gravity="center"
     tools:context=".SignUpLogin"
     android:gravity="center"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
     android:background="@color/background_color">
 
     <TextView
