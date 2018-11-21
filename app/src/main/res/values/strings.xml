@@ -6,4 +6,7 @@
     <string name="login">LOGIN </string>
     <string name="new_user">Or are you new to TheRunner? </string>
     <string name="start">START</string>
+    <string name="time">TIME</string>
+    <string name="kilometers">KILOMETERS</string>
+
 </resources>
