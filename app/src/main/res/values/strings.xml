@@ -13,6 +13,7 @@
     <string name="average_speed">AVERAGE SPEED</string>
     <string name="max_speed">MAX SPEED</string>
     <string name="logout">LOGOUT</string>
+    <string name="previous_runs">Previous Runs</string>
 
 
 </resources>

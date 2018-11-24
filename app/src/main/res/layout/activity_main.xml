@@ -12,6 +12,12 @@
         android:id="@+id/username"/>
     <!-- This text will allow us to show the user data
     extracted from the database !-->
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="300dp">
+        <!-- This view adds space between the elements !-->
+    </View>
     
     <Button
         android:id="@+id/start"
@@ -19,4 +25,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/start" />
+
+    <Button
+        android:id="@+id/previousRuns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/previous_runs" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/logout" />
 </LinearLayout>

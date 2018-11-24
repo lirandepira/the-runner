@@ -8,6 +8,12 @@
     android:paddingLeft="50dp"
     android:paddingRight="50dp">
 
+    <View
+        android:layout_height="200dp"
+        android:layout_width="fill_parent">
+        <!-- This view adds space between the elements !-->
+    </View>
+
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
@@ -137,6 +143,5 @@
         android:layout_gravity="center"
         android:text="@string/done"
         android:onClick="done"/>
-
 
 </LinearLayout>
