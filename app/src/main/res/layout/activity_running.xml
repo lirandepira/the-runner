@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white_greyish"
+        android:textStyle="bold"
         android:text="@string/time"/>
     <Chronometer
         android:layout_width="wrap_content"
@@ -34,7 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white_greyish"
-        android:text="@string/kilometers"/>
+        android:text="@string/kilometers"
+        android:textStyle="bold"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -46,19 +48,19 @@
         android:layout_height="1dp"
         android:background="@color/white_greyish"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30dp" />
-
     <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/white_greyish"/>
+        android:layout_width="fill_parent"
+        android:layout_height="50dp">
+        <!-- This view adds space between the elements !-->
+    </View>
 
-    <EditText
-        android:layout_width="wrap_content"
+
+    <Button
+        android:id="@+id/finish"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30dp" />
+        android:layout_gravity="center"
+        android:text="@string/finish"
+        android:onClick="finish"/>
 
 </LinearLayout>

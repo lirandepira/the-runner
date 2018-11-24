@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/new_user"
-        android:textColor="@color/white_greyish" />
+        android:textColor="@color/white_greyish"/>
 
     <Button
         android:layout_width="wrap_content"

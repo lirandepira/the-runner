@@ -3,6 +3,140 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background_color">
+    android:background="@color/background_color"
+    android:gravity="center"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp">
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_greyish"
+            android:textStyle="bold"
+            android:text="@string/time"/>
+        <View
+            android:layout_height="fill_parent"
+            android:layout_width="100dp">
+            <!-- This view adds space between the elements !-->
+        </View>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_greyish"
+            android:text="@string/kilometers"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal" >
+        <Chronometer
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/white_greyish"/>
+        <View
+            android:layout_height="fill_parent"
+            android:layout_width="110dp">
+            <!-- This view adds space between the elements !-->
+        </View>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white_greyish"/>
+    <!-- This view adds a horizontal line between the elements !-->
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="10dp">
+        <!-- This view adds space between the elements !-->
+    </View>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_greyish"
+            android:textStyle="bold"
+            android:text="@string/average_speed"/>
+        <View
+            android:layout_height="fill_parent"
+            android:layout_width="30dp">
+            <!-- This view adds space between the elements !-->
+        </View>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white_greyish"
+            android:text="@string/max_speed"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal" >
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/white_greyish"/>
+        <View
+            android:layout_height="fill_parent"
+            android:layout_width="150dp">
+            <!-- This view adds space between the elements !-->
+        </View>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/white_greyish"/>
+    <!-- This view adds a horizontal line between the elements !-->
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="10dp">
+        <!-- This view adds space between the elements !-->
+    </View>
+
+    <Button
+        android:id="@+id/done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/done"
+        android:onClick="done"/>
+
 
 </LinearLayout>

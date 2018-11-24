@@ -1,8 +1,14 @@
 <resources>
+    <string name="app_name">TheRunner</string>
     <string name="sign_up">S\'inscrire</string>
     <string name="submit">Valider</string>
     <string name="username">Identifiant</string>
     <string name="login">Connexion</string>
     <string name="new_user">Nouveau ? Cliquez ici</string>
     <string name="start">DÉBUT DE COURSE</string>
+    <string name="time">TEMPS</string>
+    <string name="kilometers">KILOMETREÈ</string>
+    <string name="finish">TERMINER</string>
+    <string name="done">TERMINE</string>
+
 </resources>

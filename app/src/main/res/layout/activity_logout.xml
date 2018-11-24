@@ -3,20 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background_color">
+    android:background="@color/background_color"
+    android:gravity="center"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp">
 
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/username"/>
-    <!-- This text will allow us to show the user data
-    extracted from the database !-->
-    
     <Button
-        android:id="@+id/start"
+        android:id="@+id/logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/start" />
+        android:text="@string/logout"
+        android:onClick="logout"/>
+
 </LinearLayout>

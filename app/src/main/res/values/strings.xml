@@ -8,5 +8,11 @@
     <string name="start">START</string>
     <string name="time">TIME</string>
     <string name="kilometers">KILOMETERS</string>
+    <string name="finish">FINISH</string>
+    <string name="done">DONE</string>
+    <string name="average_speed">AVERAGE SPEED</string>
+    <string name="max_speed">MAX SPEED</string>
+    <string name="logout">LOGOUT</string>
+
 
 </resources>
