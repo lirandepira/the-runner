@@ -31,10 +31,11 @@
         android:layout_height="wrap_content"
         android:hint="@string/username"
         android:textSize="16dp"
-        android:textColorHint="@color/white_greyish" />
+        android:textColorHint="@color/white_greyish"
+        android:id="@+id/login"/>
 
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/submitLogIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -59,6 +60,7 @@
         android:layout_height="wrap_content"
         android:text="@string/sign_up"
         android:layout_gravity="center"
-        android:onClick="signUp"/>
+        android:onClick="signUp"
+        />
 
 </LinearLayout>
