@@ -11,4 +11,5 @@ public class Summary extends AppCompatActivity {
         setContentView(R.layout.activity_summary);
 
     }
+
 }
