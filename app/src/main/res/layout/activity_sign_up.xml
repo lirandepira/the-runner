@@ -18,7 +18,8 @@
         android:text="@string/sign_up"
         android:textColor="@color/white_greyish"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        />
 
     <View
         android:layout_width="fill_parent"
@@ -31,13 +32,15 @@
         android:layout_height="wrap_content"
         android:hint="@string/username"
         android:textSize="16dp"
-        android:textColorHint="@color/white_greyish" />
+        android:textColorHint="@color/white_greyish"
+        android:id="@+id/submitLogin"/>
 
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/submitSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/submit"/>
+        android:text="@string/submit"
+        android:onClick="signUpSubmit"/>
 
 </LinearLayout>
