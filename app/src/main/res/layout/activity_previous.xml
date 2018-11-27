@@ -17,7 +17,7 @@
         android:paddingTop="12dp"/>
     <View
         android:layout_width="fill_parent"
-        android:layout_height="10dp">
+        android:layout_height="20dp">
         <!-- This view adds space between the elements !-->
     </View>
 
