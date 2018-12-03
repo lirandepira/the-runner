@@ -7,7 +7,7 @@ import android.content.Context;
 
 public class Users_run extends SQLiteOpenHelper {
 
-    private final String CREATE_TABLE = "create table users(" + "id integer primary key autoincrement" + "username (50));";
+    private final String CREATE_TABLE = "create table users(" + "id integer primary key autoincrement," + "username varchar(50));";
 
     public Users_run(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
         super(context, name, factory, version);

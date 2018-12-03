@@ -7,14 +7,18 @@ import android.view.View;
 import android.content.SharedPreferences;
 import android.widget.EditText;
 import android.util.Log;
+import android.widget.Toast;
 
 
 public class SignUpLogin extends AppCompatActivity {
+
+    private UsersHandler usersHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        usersHandler = new UsersHandler(this);
 
     }
     public void signUp(View view){
@@ -29,31 +33,25 @@ public class SignUpLogin extends AppCompatActivity {
     }
 
     public void signUpSubmit(View view){
-        SharedPreferences preferences = this.getSharedPreferences("my-preferences", MODE_PRIVATE);
+       /* SharedPreferences preferences = this.getSharedPreferences("my-preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
+*/
 
         EditText login = findViewById(R.id.submitLogin);
-
-        editor.putString("login", login.getText().toString());
-        if(!editor.commit()){
-            Log.i("login", "commit");
-        }
-        start(view);
+        usersHandler.open();
+        User user = new User(login.getText().toString());
+        usersHandler.insertUser(user);
+        usersHandler.close();
+        login.setText("");
+        Toast.makeText(getBaseContext(), "User added", Toast.LENGTH_SHORT).show();
     }
 
     public void submit(View view){
-        SharedPreferences preferences = this.getSharedPreferences("my-prefs", MODE_PRIVATE);
-        String login;
-        login = preferences.getString("login", "");
         String subLogin = findViewById(R.id.login).toString();
-        try{
-        if(login.compareTo(subLogin) == 0){
-            start(view);
-        }
-        else{
-            setContentView(R.layout.activity_sign_up);
-        }}catch (NullPointerException ne){
-            ne.printStackTrace();
+        usersHandler.open();
+        User userByName = usersHandler.getUserByName(subLogin);
+        if(userByName == null){
+            Toast.makeText(getBaseContext(), "User not found, please sign up", Toast.LENGTH_SHORT).show();
         }
     }
 
