@@ -2,6 +2,7 @@ package enseirb.fr.therunner;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.SettingsSlicesContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.content.SharedPreferences;
@@ -44,6 +45,7 @@ public class SignUpLogin extends AppCompatActivity {
         usersHandler.close();
         login.setText("");
         Toast.makeText(getBaseContext(), "User added", Toast.LENGTH_SHORT).show();
+        start(view);
     }
 
     public void submit(View view){
