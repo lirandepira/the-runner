@@ -39,6 +39,19 @@ public class SignUpLogin extends AppCompatActivity {
 */
 
         EditText login = findViewById(R.id.submitLogin);
+        final String name = login.getText().toString();
+        if(name.length()==0)
+
+        {
+            login.requestFocus();
+            login.setError("FIELD CANNOT BE EMPTY");
+        }
+
+        else if(!name.matches("[a-zA-Z ]+"))
+        {
+            login.requestFocus();
+            login.setError("ENTER ONLY ALPHABETICAL CHARACTER");
+        }
         usersHandler.open();
         User user = new User(login.getText().toString());
         usersHandler.insertUser(user);
@@ -54,6 +67,9 @@ public class SignUpLogin extends AppCompatActivity {
         User userByName = usersHandler.getUserByName(subLogin);
         if(userByName == null){
             Toast.makeText(getBaseContext(), "User not found, please sign up", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            start(view);
         }
     }
 
