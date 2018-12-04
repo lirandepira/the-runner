@@ -11,7 +11,7 @@ public class UsersHandler {
     private Users_run users_run;
 
     public UsersHandler(Context context){
-        users_run = new Users_run(context, "Users", null, VERSION_BDD);
+        users_run = new Users_run(context, "users", null, VERSION_BDD);
     }
 
     public void open(){
