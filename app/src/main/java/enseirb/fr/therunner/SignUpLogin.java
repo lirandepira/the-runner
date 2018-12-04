@@ -58,22 +58,10 @@ public class SignUpLogin extends AppCompatActivity {
         usersHandler.close();
         login.setText("");
         Toast.makeText(getBaseContext(), "User added", Toast.LENGTH_SHORT).show();
-        start(view);
+        launchMain(view);
     }
 
-    public void submit(View view){
-        String subLogin = findViewById(R.id.login).toString();
-        usersHandler.open();
-        User userByName = usersHandler.getUserByName(subLogin);
-        if(userByName == null){
-            Toast.makeText(getBaseContext(), "User not found, please sign up", Toast.LENGTH_SHORT).show();
-        }
-        else{
-            start(view);
-        }
-    }
-
-    public void start(View view){
+    public void launchMain(View view){
         startActivity(new Intent(this, Main.class));
     }
 }

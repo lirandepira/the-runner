@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:paddingLeft="50dp"
     android:paddingRight="50dp"
-    tools:context=".SignUpLogin">
+    tools:context=".Login">
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,5 +62,10 @@
         android:layout_gravity="center"
         android:onClick="signUp"
         />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="50dp">
+        <!-- This view adds space between the elements !-->
+    </View>
 
 </LinearLayout>

@@ -24,14 +24,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/start" />
+        android:text="@string/start"
+        android:onClick="start"/>
 
     <Button
         android:id="@+id/previousRuns"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/previous_runs" />
+        android:text="@string/previous_runs"
+        android:onClick="previousRuns"/>
 
     <Button
         android:id="@+id/logout"

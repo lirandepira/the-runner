@@ -42,5 +42,15 @@
         android:layout_gravity="center"
         android:text="@string/submit"
         android:onClick="signUpSubmit"/>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="50dp">
+        <!-- This view adds space between the elements !-->
+    </View>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="50dp">
+        <!-- This view adds space between the elements !-->
+    </View>
 
 </LinearLayout>

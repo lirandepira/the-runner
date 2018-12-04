@@ -24,5 +24,4 @@ public class Users_run extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE);
     }
 
-
 }
