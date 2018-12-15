@@ -18,7 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30dp"
-        android:textColor="@color/white_greyish"/>
+        android:textColor="@color/white_greyish"
+        android:id="@+id/chrono"/>
 
     <View
         android:layout_width="match_parent"

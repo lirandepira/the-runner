@@ -141,7 +141,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/done"
-        android:onClick="done"/>
+        android:text="@string/goToHomepage"
+        android:onClick="goToHomepage"/>
 
 </LinearLayout>

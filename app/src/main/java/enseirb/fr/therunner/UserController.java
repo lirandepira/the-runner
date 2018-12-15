@@ -1,14 +1,14 @@
 package enseirb.fr.therunner;
 
-public class User {
+public class UserController {
     private int id;
     private String username;
 
-    public User(int id, String name){
+    public UserController(int id, String name){
         this.id = id;
         this.username = name;
     }
-    public User(String name){
+    public UserController(String name){
         this.username = name;
     }
 

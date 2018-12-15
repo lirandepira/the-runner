@@ -35,7 +35,6 @@
         android:id="@+id/login"/>
 
     <Button
-        android:id="@+id/submitLogIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
