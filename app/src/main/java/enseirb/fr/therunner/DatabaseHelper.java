@@ -7,10 +7,10 @@ import android.content.Context;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private final String CREATE_TABLE_USERS = "create table users(" + "id integer primary key autoincrement," + "username varchar(50));";
-    private final String CREATE_TABLE_RUNS = "create table runs(" + "id integer primary key autoincrement," +
+    private final String CREATE_TABLE_USERS = "create table users(" + "userId integer primary key autoincrement," + "username varchar(50));";
+    private final String CREATE_TABLE_RUNS = "create table runs(" + "runId integer primary key autoincrement," +
             "distance integer," + "long time," + "date_run varchar(25)," + "runningUser int," +
-            "FOREIGN KEY(runingUser)" + "REFERENCES users(userId)\n);";
+            "FOREIGN KEY(runningUser)" + "REFERENCES users(userId)\n);"; //test for id only
 
 
     public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){

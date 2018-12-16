@@ -48,20 +48,23 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:orientation="horizontal" >
-        <Chronometer
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:textColor="@color/white_greyish"/>
+            android:textColor="@color/white_greyish"
+            android:id="@+id/chronoresult"/>
         <View
             android:layout_height="fill_parent"
             android:layout_width="110dp">
             <!-- This view adds space between the elements !-->
         </View>
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:textColor="@color/white_greyish"
+            android:id="@+id/distance"/>
     </LinearLayout>
 
     <View
@@ -87,7 +90,8 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white_greyish"
             android:textStyle="bold"
-            android:text="@string/average_speed"/>
+            android:text="@string/average_speed"
+            />
         <View
             android:layout_height="fill_parent"
             android:layout_width="30dp">
@@ -98,7 +102,8 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white_greyish"
             android:text="@string/max_speed"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            />
 
     </LinearLayout>
 
@@ -109,20 +114,22 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:orientation="horizontal" >
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:textColor="@color/white_greyish"/>
+            android:textColor="@color/white_greyish"
+            android:id="@+id/avgspeed"/>
         <View
             android:layout_height="fill_parent"
             android:layout_width="150dp">
             <!-- This view adds space between the elements !-->
         </View>
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:id="@+id/maxspeed"/>
     </LinearLayout>
 
     <View
