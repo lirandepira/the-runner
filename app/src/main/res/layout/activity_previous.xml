@@ -6,6 +6,12 @@
     android:orientation="vertical"
     android:background="@color/background_color">
 
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="20dp">
+        <!-- This view adds space between the elements !-->
+    </View>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,7 +23,7 @@
         android:paddingTop="12dp"/>
     <View
         android:layout_width="fill_parent"
-        android:layout_height="20dp">
+        android:layout_height="40dp">
         <!-- This view adds space between the elements !-->
     </View>
 
@@ -67,29 +73,32 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:orientation="horizontal" >
-        <Chronometer
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:textColor="@color/white_greyish"/>
+            android:textColor="@color/white_greyish"
+            android:id="@+id/time1"/>
         <View
             android:layout_height="fill_parent"
             android:layout_width="110dp">
             <!-- This view adds space between the elements !-->
         </View>
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:id="@+id/kilometers1"/>
         <View
             android:layout_height="fill_parent"
             android:layout_width="110dp">
             <!-- This view adds space between the elements !-->
         </View>
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:id="@+id/avgspeed1"/>
     </LinearLayout>
 
     <View
@@ -144,29 +153,35 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:orientation="horizontal" >
-        <Chronometer
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:textColor="@color/white_greyish"/>
+            android:textColor="@color/white_greyish"
+            android:id="@+id/time2"/>
+
         <View
             android:layout_height="fill_parent"
             android:layout_width="110dp">
             <!-- This view adds space between the elements !-->
         </View>
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:id="@+id/kilometers2"/>
+
         <View
             android:layout_height="fill_parent"
             android:layout_width="110dp">
             <!-- This view adds space between the elements !-->
         </View>
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:id="@+id/avgspeed2"/>
+
     </LinearLayout>
 
     <View
@@ -221,29 +236,35 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:orientation="horizontal" >
-        <Chronometer
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:textColor="@color/white_greyish"/>
+            android:textColor="@color/white_greyish"
+            android:id="@+id/time3"/>
+
         <View
             android:layout_height="fill_parent"
             android:layout_width="110dp">
             <!-- This view adds space between the elements !-->
         </View>
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:id="@+id/kilometers3"/>
+
         <View
             android:layout_height="fill_parent"
             android:layout_width="110dp">
             <!-- This view adds space between the elements !-->
         </View>
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:id="@+id/avgspeed3"/>
+
     </LinearLayout>
 
     <View
@@ -298,29 +319,35 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:orientation="horizontal" >
-        <Chronometer
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:textColor="@color/white_greyish"/>
+            android:textColor="@color/white_greyish"
+            android:id="@+id/time4"/>
+
         <View
             android:layout_height="fill_parent"
             android:layout_width="110dp">
             <!-- This view adds space between the elements !-->
         </View>
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:id="@+id/kilometers4"/>
+
         <View
             android:layout_height="fill_parent"
             android:layout_width="110dp">
             <!-- This view adds space between the elements !-->
         </View>
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:id="@+id/avgspeed4"/>
+
     </LinearLayout>
 
 

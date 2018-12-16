@@ -37,7 +37,6 @@ public class Running extends AppCompatActivity {
         Toast.makeText(getBaseContext(), "User " + this.getIntent().getExtras().getString("username") + " is connected", Toast.LENGTH_SHORT).show();
         chronometer = (Chronometer) findViewById(R.id.chrono);
         chronometer.start();
-        Toast.makeText(getBaseContext(), currentLatitude + " : " +currentLongitude, Toast.LENGTH_SHORT).show();
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
@@ -45,6 +44,7 @@ public class Running extends AppCompatActivity {
             public void onLocationChanged(Location location) {
                 currentLatitude = location.getLatitude();
                 currentLongitude = location.getLongitude();
+                Toast.makeText(getBaseContext(), currentLatitude + " : " +currentLongitude, Toast.LENGTH_SHORT).show();
             }
 
             @Override

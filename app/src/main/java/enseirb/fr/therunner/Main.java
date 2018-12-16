@@ -67,6 +67,9 @@ public class Main extends AppCompatActivity {
     }
 
     public void launchPrevious(View view){
-        startActivity(new Intent(this, PreviousRuns.class));
+
+        Intent intent = (new Intent(this, PreviousRuns.class));
+        intent.putExtra("username", this.getIntent().getExtras().getString("username"));
+        startActivity(intent);
     }
 }

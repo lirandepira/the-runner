@@ -29,7 +29,7 @@ public class Summary extends AppCompatActivity {
         avgSpeedView.setText(Long.toString(averageSpeed(distance, chrono)));
     }
 
-    private long averageSpeed(int distance, long chrono){
+    public long averageSpeed(int distance, long chrono){
         return distance * 60 / chrono;
     }
 

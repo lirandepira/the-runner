@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+
 public class RunsHandler {
     private final static int VERSION_BDD = 1;
     private SQLiteDatabase db;
@@ -31,17 +33,27 @@ public class RunsHandler {
         contentValues.put("distance", runController.getDistance());
         contentValues.put("time", runController.getTime());
         contentValues.put("date", runController.getDate_run());
+        contentValues.put("user", runController.getRunningUser());
         return db.insert("runs", null, contentValues);
     }
 
-    public RunController getAllRuns(int userId){
-        Cursor cursor = db.query("runs", null, "runningUser like \"" + userId + "\"", null, null, null, null);
-        if(cursor.getCount() < 1){
-            return null;
+    public ArrayList<RunController> getRuns(int userId){
+        Cursor cursor = db.query("runs", null, "runningUser like \"" + userId
+                + "\"", null, null, null, null);
+        int nbRuns = cursor.getCount()/5;
+        ArrayList<RunController> runs = new ArrayList<>();
+        if(nbRuns == 0){
+            return runs;
         }
         cursor.moveToFirst();
-        RunController runController = new RunController(cursor.getInt(0), cursor.getLong(1), cursor.getInt(2), cursor.getString(3), cursor.getInt(4));
+        int index = 0;
+        while(nbRuns > 0) {
+            runs.add(new RunController(cursor.getInt(index), cursor.getLong(index+1),
+                    cursor.getInt(index+2), cursor.getString(index+3), cursor.getInt(index+4)));
+            index+=5;
+            nbRuns--;
+        }
         cursor.close();
-        return runController;
+        return runs;
     }
 }
