@@ -9,6 +9,10 @@
     <string name="time">TEMPS</string>
     <string name="kilometers">KILOMETREÈ</string>
     <string name="finish">TERMINER</string>
-    <string name="done">TERMINE</string>
+    <string name="goToHomepage">Menu Principal</string>
+    <string name="average_speed">Vitesse moyenne</string>
+    <string name="max_speed">Vitesse Maximale</string>
+    <string name="logout">Déconnexion</string>
+    <string name="previous_runs">Mes courses prédédentes</string>
 
 </resources>
