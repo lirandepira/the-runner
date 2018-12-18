@@ -70,7 +70,7 @@ public class Main extends AppCompatActivity {
 
     }
 
-    /*public void onResume(){
+    public void onResume(){
         super.onResume();
         //this will refresh the osmdroid configuration on resuming.
         //if you make changes to the configuration, use
@@ -86,7 +86,7 @@ public class Main extends AppCompatActivity {
         //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         //Configuration.getInstance().save(this, prefs);
         mMapView.onPause();  //needed for compass, my location overlays, v6.0.0 and up
-    }*/
+    }
 
     public void logout(View view){
         launchLogin(view);
