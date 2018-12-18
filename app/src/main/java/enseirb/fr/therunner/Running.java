@@ -96,22 +96,21 @@ public class Running extends AppCompatActivity {
         chronometer.stop();
         long elapsed = SystemClock.elapsedRealtime() - chronometer.getBase();
         int distance = 12;//fixme find how to calculate me
-        String date = "01-01-2019";//fixme
         long chrono = elapsed/1000;
         String username = this.getIntent().getExtras().getString("username");
         usersHandler.open();
         runsHandler.open();
-        runsHandler.insertRun(new RunController(elapsed, distance, date, usersHandler.getUserByName(username).getId()));
+        RunController runner = new RunController(elapsed, distance, usersHandler.getUserByName(username).getId());
+        runsHandler.insertRun(runner);
         runsHandler.close();
         usersHandler.close();
-        launchSummary(view, username, distance, date, chrono);
+        launchSummary(view, username, distance, chrono);
     }
 
-    public void launchSummary(View view, String username, int distance, String date, long chrono){
+    public void launchSummary(View view, String username, int distance, long chrono){
         Intent intent = new Intent(this, Summary.class);
         intent.putExtra("username", username);
         intent.putExtra("distance", distance);
-        intent.putExtra("date", date);
         intent.putExtra("chrono", chrono);
         startActivity(intent);
     }

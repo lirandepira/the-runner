@@ -3,6 +3,7 @@ package enseirb.fr.therunner;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +36,7 @@ public class PreviousRuns extends AppCompatActivity {
         usersHandler.close();
         int size = runController.size();
         //view1
-        if(size > 0){
+        if(size == 0){
             Toast.makeText(getBaseContext(), "No runs recorded", Toast.LENGTH_SHORT).show();
         }
         /*TextView chronoView1 = findViewById(R.id.time1);

@@ -9,8 +9,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private final String CREATE_TABLE_USERS = "create table users(" + "userId integer primary key autoincrement," + "username varchar(50));";
     private final String CREATE_TABLE_RUNS = "create table runs(" + "runId integer primary key autoincrement," +
-            "distance integer," + "long time," + "date_run varchar(25)," + "runningUser int," +
-            "FOREIGN KEY(runningUser)" + "REFERENCES users(userId)\n);"; //test for id only
+            "distance integer," + "long time," + "runningUser int," +
+            "FOREIGN KEY(runningUser)" + "REFERENCES users(userId)\n);";
 
 
     public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){

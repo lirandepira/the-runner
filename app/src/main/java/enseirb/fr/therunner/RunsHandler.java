@@ -32,15 +32,14 @@ public class RunsHandler {
         ContentValues contentValues = new ContentValues();
         contentValues.put("distance", runController.getDistance());
         contentValues.put("time", runController.getTime());
-        contentValues.put("date", runController.getDate_run());
-        contentValues.put("user", runController.getRunningUser());
+        contentValues.put("runningUser", runController.getRunningUser());
         return db.insert("runs", null, contentValues);
     }
 
     public ArrayList<RunController> getRuns(int userId){
-        Cursor cursor = db.query("runs", null, "runningUser like \"" + userId
-                + "\"", null, null, null, null);
-        int nbRuns = cursor.getCount()/5;
+        Cursor cursor = db.query("runs", null, null,
+                 null, null, null, null);
+        int nbRuns = cursor.getCount()/4;
         ArrayList<RunController> runs = new ArrayList<>();
         if(nbRuns == 0){
             return runs;
@@ -49,7 +48,7 @@ public class RunsHandler {
         int index = 0;
         while(nbRuns > 0) {
             runs.add(new RunController(cursor.getInt(index), cursor.getLong(index+1),
-                    cursor.getInt(index+2), cursor.getString(index+3), cursor.getInt(index+4)));
+                    cursor.getInt(index+2), cursor.getInt(index+3)));
             index+=5;
             nbRuns--;
         }

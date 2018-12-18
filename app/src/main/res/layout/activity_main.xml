@@ -6,23 +6,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/background_color"
-    tools:context=".Main"
-    >
+    tools:context=".Main">
 
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/username"/>
-    <!-- This text will allow us to show the userController data
-    extracted from the database !-->
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapview"
+        android:layout_width="fill_parent"
+        android:layout_height="450dp"
+        xmlns:android="http://schemas.android.com/apk/res/android" />
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="300dp">
+        android:layout_height="10dp">
         <!-- This view adds space between the elements !-->
     </View>
-    
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,4 +40,5 @@
         android:layout_gravity="center"
         android:text="@string/logout"
         android:onClick="logout"/>
+
 </LinearLayout>
