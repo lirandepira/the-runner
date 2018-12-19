@@ -1,5 +1,6 @@
 package enseirb.fr.therunner;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
@@ -22,12 +23,15 @@ import org.osmdroid.views.overlay.OverlayManager;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
+import java.util.LinkedList;
+
 public class Main extends AppCompatActivity {
 
     private LocationManager locationManager;
     private LocationListener locationListener;
     private MapView         mMapView;
     private MapController   mMapController;
+    // private DefaultResourceProxyImpl resourceProxyImp = new DefaultResourceProxyImpl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +69,21 @@ public class Main extends AppCompatActivity {
         mMapView.setBuiltInZoomControls(true);
         mMapController = (MapController) mMapView.getController();
         mMapController.setZoom(13);
-        GeoPoint gPt = new GeoPoint(44.836151, -0.580816);
-        mMapController.setCenter(gPt);
+        // GeoPoint gPt = new GeoPoint(44.836151, -0.580816);
+        // mMapController.setCenter(gPt);
+
+        MyLocationNewOverlay myLocationoverlay = new MyLocationNewOverlay(mMapView);
+        myLocationoverlay.enableFollowLocation();
+        myLocationoverlay.enableMyLocation();
+        mMapView.getOverlays().add(myLocationoverlay);
+
+        /*ItemizedIconOverlay itemizedIconOverlay = new ItemizedIconOverlay<OverlayItem> (new LinkedList<OverlayItem>(),
+                myMarker, null, resProxyImp);
+        mMapView.getOverlays().add(markersOverlay);
+
+        OverlayItem ovm = new OverlayItem("title", "description", new GeoPoint(s.LatitudeE6(), s.LongitudeE6()));
+        ovm.setMarker(myMarker);
+        markersOverlay.addItem(ovm);*/
 
     }
 
