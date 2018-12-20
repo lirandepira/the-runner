@@ -67,7 +67,7 @@ public class Summary extends AppCompatActivity {
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
 
-        mMapView = (MapView) findViewById(R.id.mapview2);
+        mMapView = findViewById(R.id.mapview2);
         mMapView.setTileSource(TileSourceFactory.DEFAULT_TILE_SOURCE);
         mMapView.setBuiltInZoomControls(true);
         mMapController = (MapController) mMapView.getController();
