@@ -27,6 +27,8 @@ public class Running extends AppCompatActivity {
     private LocationListener locationListener;
     private double currentLongitude;
     private double currentLatitude;
+    private double distance = 0D;
+    private final double radians = Math.PI / 180D;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,11 @@ public class Running extends AppCompatActivity {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
+                double dlong = (location.getLongitude() - currentLongitude) * radians;
+                double dlat = (location.getLatitude() - currentLatitude) * radians;
+                double a = Math.pow(Math.sin(dlat / 2D), 2D) + Math.cos(currentLatitude * radians)
+                        * Math.cos(location.getLatitude() * radians) * Math.pow(Math.sin(dlong / 2D), 2D);
+                distance += 1000D * 63780.1370D * 2D * Math.atan2(Math.sqrt(a), Math.sqrt(1D - a));
                 currentLatitude = location.getLatitude();
                 currentLongitude = location.getLongitude();
                 Toast.makeText(getBaseContext(), currentLatitude + " : " +currentLongitude, Toast.LENGTH_SHORT).show();
@@ -95,12 +102,12 @@ public class Running extends AppCompatActivity {
     public void finish (View view){
         chronometer.stop();
         long elapsed = SystemClock.elapsedRealtime() - chronometer.getBase();
-        int distance = 12;//fixme find how to calculate me
+        //int distance = 12;//fixme find how to calculate me
         long chrono = elapsed/1000;
         String username = this.getIntent().getExtras().getString("username");
         usersHandler.open();
         runsHandler.open();
-        RunController runner = new RunController(elapsed, distance, usersHandler.getUserByName(username).getId());
+        RunController runner = new RunController(elapsed,, usersHandler.getUserByName(username).getId());
         runsHandler.insertRun(runner);
         runsHandler.close();
         usersHandler.close();
