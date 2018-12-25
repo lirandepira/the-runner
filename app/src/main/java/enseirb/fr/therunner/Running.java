@@ -29,6 +29,7 @@ public class Running extends AppCompatActivity {
     private double currentLatitude;
     private double distance = 0D;
     private final double radians = Math.PI / 180D;
+    private boolean firstCoordinates = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +45,19 @@ public class Running extends AppCompatActivity {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                double dlong = (location.getLongitude() - currentLongitude) * radians;
-                double dlat = (location.getLatitude() - currentLatitude) * radians;
-                double a = Math.pow(Math.sin(dlat / 2D), 2D) + Math.cos(currentLatitude * radians)
-                        * Math.cos(location.getLatitude() * radians) * Math.pow(Math.sin(dlong / 2D), 2D);
-                distance += 1000D * 63780.1370D * 2D * Math.atan2(Math.sqrt(a), Math.sqrt(1D - a));
-                currentLatitude = location.getLatitude();
-                currentLongitude = location.getLongitude();
-                Toast.makeText(getBaseContext(), currentLatitude + " : " +currentLongitude, Toast.LENGTH_SHORT).show();
+                if(firstCoordinates){
+                    firstCoordinates = false;
+                }
+                else {
+                    double dlong = (location.getLongitude() - currentLongitude) * radians;
+                    double dlat = (location.getLatitude() - currentLatitude) * radians;
+                    double a = Math.pow(Math.sin(dlat / 2D), 2D) + Math.cos(currentLatitude * radians)
+                            * Math.cos(location.getLatitude() * radians) * Math.pow(Math.sin(dlong / 2D), 2D);
+                    distance += 1000D * 63780.1370D * 2D * Math.atan2(Math.sqrt(a), Math.sqrt(1D - a));
+                    currentLatitude = location.getLatitude();
+                    currentLongitude = location.getLongitude();
+                }
+                //Toast.makeText(getBaseContext(), currentLatitude + " : " +currentLongitude, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -107,14 +113,14 @@ public class Running extends AppCompatActivity {
         String username = this.getIntent().getExtras().getString("username");
         usersHandler.open();
         runsHandler.open();
-        RunController runner = new RunController(elapsed,, usersHandler.getUserByName(username).getId());
+        RunController runner = new RunController(elapsed, distance, usersHandler.getUserByName(username).getId());
         runsHandler.insertRun(runner);
         runsHandler.close();
         usersHandler.close();
         launchSummary(view, username, distance, chrono);
     }
 
-    public void launchSummary(View view, String username, int distance, long chrono){
+    public void launchSummary(View view, String username, double distance, long chrono){
         Intent intent = new Intent(this, Summary.class);
         intent.putExtra("username", username);
         intent.putExtra("distance", distance);

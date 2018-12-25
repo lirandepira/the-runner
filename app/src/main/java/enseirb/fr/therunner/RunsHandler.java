@@ -48,7 +48,7 @@ public class RunsHandler {
         int index = 0;
         while(nbRuns > 0) {
             runs.add(new RunController(cursor.getInt(index), cursor.getLong(index+1),
-                    cursor.getInt(index+2), cursor.getInt(index+3)));
+                    cursor.getDouble(index+2), cursor.getInt(index+3)));
             index+=5;
             nbRuns--;
         }

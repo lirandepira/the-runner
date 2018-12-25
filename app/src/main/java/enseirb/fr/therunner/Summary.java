@@ -52,7 +52,7 @@ public class Summary extends AppCompatActivity {
             }
         };
 
-        int distance = this.getIntent().getExtras().getInt("distance");
+        double distance = this.getIntent().getExtras().getDouble("distance");
         long chrono = this.getIntent().getExtras().getLong("chrono");
         long minutes = chrono / 60;
         long seconds = chrono - 60 * minutes;
@@ -60,9 +60,9 @@ public class Summary extends AppCompatActivity {
         TextView chronoView = findViewById(R.id.chronoresult);
         chronoView.setText(displayChrono);
         TextView distanceView = findViewById(R.id.distance);
-        distanceView.setText(Integer.toString(distance));
+        distanceView.setText(Double.toString(distance));
         TextView avgSpeedView = findViewById(R.id.avgspeed);
-        avgSpeedView.setText(Long.toString(averageSpeed(distance, chrono)));
+        avgSpeedView.setText(Double.toString(averageSpeed(distance, chrono)));
 
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
@@ -76,8 +76,8 @@ public class Summary extends AppCompatActivity {
         mMapController.setCenter(gPt);
     }
 
-    public long averageSpeed(int distance, long chrono){
-        return distance * 60 / chrono;
+    private double averageSpeed(double distance, long chrono){
+        return distance / chrono;
     }
 
     public void goToHomepage (View view){
