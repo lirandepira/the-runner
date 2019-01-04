@@ -14,8 +14,10 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Chronometer;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Running extends AppCompatActivity {
@@ -30,6 +32,8 @@ public class Running extends AppCompatActivity {
     private double distance = 0D;
     private final double radians = Math.PI / 180D;
     private boolean firstCoordinates = true;
+    private ArrayList<Double> longitudes = new ArrayList<>();
+    private ArrayList<Double> latitudes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,8 @@ public class Running extends AppCompatActivity {
         Toast.makeText(getBaseContext(), "User " + this.getIntent().getExtras().getString("username") + " is connected", Toast.LENGTH_SHORT).show();
         chronometer = (Chronometer) findViewById(R.id.chrono);
         chronometer.start();
+        TextView distanceDisplay = findViewById(R.id.kilometers);
+        distanceDisplay.setText(Double.toString(distance));
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
@@ -54,9 +60,13 @@ public class Running extends AppCompatActivity {
                     double a = Math.pow(Math.sin(dlat / 2D), 2D) + Math.cos(currentLatitude * radians)
                             * Math.cos(location.getLatitude() * radians) * Math.pow(Math.sin(dlong / 2D), 2D);
                     distance += 1000D * 63780.1370D * 2D * Math.atan2(Math.sqrt(a), Math.sqrt(1D - a));
-                    currentLatitude = location.getLatitude();
-                    currentLongitude = location.getLongitude();
                 }
+                currentLatitude = location.getLatitude();
+                currentLongitude = location.getLongitude();
+                longitudes.add(currentLongitude);
+                latitudes.add(currentLatitude);
+                TextView distanceDisplay = findViewById(R.id.kilometers);
+                distanceDisplay.setText(Double.toString(distance));
                 //Toast.makeText(getBaseContext(), currentLatitude + " : " +currentLongitude, Toast.LENGTH_SHORT).show();
             }
 
@@ -108,12 +118,11 @@ public class Running extends AppCompatActivity {
     public void finish (View view){
         chronometer.stop();
         long elapsed = SystemClock.elapsedRealtime() - chronometer.getBase();
-        //int distance = 12;//fixme find how to calculate me
         long chrono = elapsed/1000;
         String username = this.getIntent().getExtras().getString("username");
         usersHandler.open();
         runsHandler.open();
-        RunController runner = new RunController(elapsed, distance, usersHandler.getUserByName(username).getId());
+        RunController runner = new RunController(elapsed, distance, usersHandler.getUserByName(username).getId(), longitudes, latitudes);
         runsHandler.insertRun(runner);
         runsHandler.close();
         usersHandler.close();
