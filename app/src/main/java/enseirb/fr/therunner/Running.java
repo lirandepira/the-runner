@@ -17,6 +17,8 @@ import android.widget.Chronometer;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -34,6 +36,8 @@ public class Running extends AppCompatActivity {
     private boolean firstCoordinates = true;
     private ArrayList<Double> longitudes = new ArrayList<>();
     private ArrayList<Double> latitudes = new ArrayList<>();
+    private double maxSpeed = 0D;
+    private long timeElapsed = 0L;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,10 @@ public class Running extends AppCompatActivity {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
+                //time Elapsed between two coordinates
+                long lastElapsed = SystemClock.elapsedRealtime() - chronometer.getBase() - timeElapsed;
+                //update total elapsed time.
+                timeElapsed = SystemClock.elapsedRealtime() - chronometer.getBase();
                 if(firstCoordinates){
                     firstCoordinates = false;
                 }
@@ -59,14 +67,21 @@ public class Running extends AppCompatActivity {
                     double dlat = (location.getLatitude() - currentLatitude) * radians;
                     double a = Math.pow(Math.sin(dlat / 2D), 2D) + Math.cos(currentLatitude * radians)
                             * Math.cos(location.getLatitude() * radians) * Math.pow(Math.sin(dlong / 2D), 2D);
-                    distance += 1000D * 63780.1370D * 2D * Math.atan2(Math.sqrt(a), Math.sqrt(1D - a));
+                    double runDistance = 63780.1370D * 2D * Math.atan2(Math.sqrt(a), Math.sqrt(1D - a));
+                    double instantSpeed = runDistance / lastElapsed * 3.6;//km/h
+                    if(instantSpeed > maxSpeed){
+                        maxSpeed = instantSpeed;
+                    }
+                    distance += runDistance;
                 }
                 currentLatitude = location.getLatitude();
                 currentLongitude = location.getLongitude();
                 longitudes.add(currentLongitude);
                 latitudes.add(currentLatitude);
                 TextView distanceDisplay = findViewById(R.id.kilometers);
-                distanceDisplay.setText(Double.toString(distance));
+                DecimalFormat df = new DecimalFormat("#.##");
+                df.setRoundingMode(RoundingMode.CEILING);
+                distanceDisplay.setText(df.format(distance));
                 //Toast.makeText(getBaseContext(), currentLatitude + " : " +currentLongitude, Toast.LENGTH_SHORT).show();
             }
 
