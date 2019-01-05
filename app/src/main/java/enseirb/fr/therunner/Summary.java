@@ -18,6 +18,9 @@ import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class Summary extends AppCompatActivity {
 
     private LocationManager locationManager;
@@ -60,7 +63,11 @@ public class Summary extends AppCompatActivity {
         TextView chronoView = findViewById(R.id.chronoresult);
         chronoView.setText(displayChrono);
         TextView distanceView = findViewById(R.id.distance);
-        distanceView.setText(Double.toString(distance));
+        //formatting distance display
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.CEILING);
+        //end of formatting
+        distanceView.setText(df.format(distance));
         TextView avgSpeedView = findViewById(R.id.avgspeed);
         avgSpeedView.setText(Double.toString(averageSpeed(distance, chrono)));
 
