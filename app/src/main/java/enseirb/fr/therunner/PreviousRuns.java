@@ -39,57 +39,59 @@ public class PreviousRuns extends AppCompatActivity {
         if(size == 0){
             Toast.makeText(getBaseContext(), "No runs recorded", Toast.LENGTH_SHORT).show();
         }
-        /*TextView chronoView1 = findViewById(R.id.time1);
-        long chrono1 = runController.get(0).getTime();
-        chronoView1.setText(Long.toString(chrono1));
+        else {
+            TextView chronoView1 = findViewById(R.id.time1);
+            long chrono1 = runController.get(0).getTime();
+            chronoView1.setText(Long.toString(chrono1));
 
-        TextView distanceView1 = findViewById(R.id.kilometers1);
-        int distance1 = runController.get(0).getDistance();
-        distanceView1.setText(Integer.toString(distance1));
+            TextView distanceView1 = findViewById(R.id.kilometers1);
+            double distance1 = runController.get(0).getDistance();
+            distanceView1.setText(Double.toString(distance1));
 
-        TextView avgSpeedView1 = findViewById(R.id.avgspeed1);
-        avgSpeedView1.setText(Long.toString(distance1 * 60 / chrono1));
+            TextView avgSpeedView1 = findViewById(R.id.avgspeed1);
+            avgSpeedView1.setText(Double.toString(distance1 * 60 / chrono1));
 
-         //view2
-        if (size >=2) {
-            TextView chronoView2 = findViewById(R.id.time2);
-            long chrono2 = runController.get(1).getTime();
-            chronoView2.setText(Long.toString(chrono2));
+            //view2
+            if (size >= 2) {
+                TextView chronoView2 = findViewById(R.id.time2);
+                long chrono2 = runController.get(1).getTime();
+                chronoView2.setText(Long.toString(chrono2));
 
-            TextView distanceView2 = findViewById(R.id.kilometers2);
-            int distance2 = runController.get(1).getDistance();
-            distanceView2.setText(Integer.toString(distance2));
+                TextView distanceView2 = findViewById(R.id.kilometers2);
+                double distance2 = runController.get(1).getDistance();
+                distanceView2.setText(Double.toString(distance2));
 
-            TextView avgSpeedView2 = findViewById(R.id.avgspeed2);
-            avgSpeedView2.setText(Long.toString(distance2 * 60 / chrono2));
+                TextView avgSpeedView2 = findViewById(R.id.avgspeed2);
+                avgSpeedView2.setText(Double.toString(distance2 * 60 / chrono2));
+            }
+
+            //view3
+            if (size >= 3) {
+                TextView chronoView3 = findViewById(R.id.time3);
+                long chrono3 = runController.get(2).getTime();
+                chronoView3.setText(Long.toString(chrono3));
+
+                TextView distanceView3 = findViewById(R.id.kilometers3);
+                double distance3 = runController.get(2).getDistance();
+                distanceView3.setText(Double.toString(distance3));
+
+                TextView avgSpeedView3 = findViewById(R.id.avgspeed3);
+                avgSpeedView3.setText(Double.toString(distance3 * 60 / chrono3));
+
+            }
+
+            if (size >= 4) {
+                TextView chronoView4 = findViewById(R.id.time4);
+                long chrono4 = runController.get(3).getTime();
+                chronoView4.setText(Long.toString(chrono4));
+
+                TextView distanceView4 = findViewById(R.id.kilometers4);
+                double distance4 = runController.get(3).getDistance();
+                distanceView4.setText(Double.toString(distance4));
+
+                TextView avgSpeedView4 = findViewById(R.id.avgspeed1);
+                avgSpeedView4.setText(Double.toString(distance4 * 60 / chrono4));
+            }
         }
-
-        //view3
-        if (size >=3){
-            TextView chronoView3 = findViewById(R.id.time3);
-            long chrono3 = runController.get(2).getTime();
-            chronoView3.setText(Long.toString(chrono3));
-
-            TextView distanceView3 = findViewById(R.id.kilometers3);
-            int distance3 = runController.get(2).getDistance();
-            distanceView3.setText(Integer.toString(distance3));
-
-            TextView avgSpeedView3 = findViewById(R.id.avgspeed3);
-            avgSpeedView3.setText(Long.toString(distance3 * 60 / chrono3));
-
-        }
-
-        if (size >=4){
-            TextView chronoView4 = findViewById(R.id.time4);
-            long chrono4 = runController.get(3).getTime();
-            chronoView4.setText(Long.toString(chrono4));
-
-            TextView distanceView4 = findViewById(R.id.kilometers4);
-            int distance4 = runController.get(3).getDistance();
-            distanceView4.setText(Integer.toString(distance4));
-
-            TextView avgSpeedView4 = findViewById(R.id.avgspeed1);
-            avgSpeedView4.setText(Long.toString(distance4 * 60 / chrono4));
-        }*/
     }
 }

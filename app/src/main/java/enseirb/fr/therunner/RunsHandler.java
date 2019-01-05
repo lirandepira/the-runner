@@ -46,10 +46,13 @@ public class RunsHandler {
         }
         cursor.moveToFirst();
         int index = 0;
+
+        // to be checked
+        // cursor is no longer working if there are 2 runs
         while(nbRuns > 0) {
-            runs.add(new RunController(cursor.getInt(index), cursor.getLong(index+1),
+            runs.add(new RunController( cursor.getLong(index+1),
                     cursor.getDouble(index+2), cursor.getInt(index+3)));
-            index+=5;
+            index+=4;
             nbRuns--;
         }
         cursor.close();

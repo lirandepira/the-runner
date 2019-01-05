@@ -81,10 +81,13 @@ public class Summary extends AppCompatActivity {
     }
 
     public void goToHomepage (View view){
+
         launchMain(view);
     }
 
     public void launchMain(View view){
-        startActivity(new Intent(this, Main.class));
+        Intent intent = new Intent(this, Main.class);
+        intent.putExtra("username", this.getIntent().getExtras().getString("username"));
+        startActivity(intent);
     }
     }

@@ -4,15 +4,13 @@ import java.util.ArrayList;
 
 
 public class RunController {
-    private int id;
     private long time;
     private double distance;
     private int runningUser;
     private ArrayList<Double> longitudes = new ArrayList<>();
     private ArrayList<Double> latitudes = new ArrayList<>();
 
-    public RunController(int id, long time, double distance, int user){
-        this.id = id;
+    public RunController(long time, double distance, int user){
         this.time = time;
         this.distance = distance;
         runningUser = user;
@@ -23,10 +21,6 @@ public class RunController {
         this.runningUser = user;
         this.longitudes = longitudes;
         this.latitudes = latitudes;
-    }
-
-    public int getId(){
-        return id;
     }
 
     public long getTime(){
