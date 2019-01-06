@@ -1,16 +1,13 @@
 package enseirb.fr.therunner;
 
-import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Chronometer;
@@ -19,8 +16,8 @@ import android.widget.Toast;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Date;
+
+import enseirb.fr.therunner.model.Coordinates;
 
 public class Running extends AppCompatActivity {
 
@@ -34,8 +31,7 @@ public class Running extends AppCompatActivity {
     private double distance = 0D;
     private final double radians = Math.PI / 180D;
     private boolean firstCoordinates = true;
-    private ArrayList<Double> longitudes = new ArrayList<>();
-    private ArrayList<Double> latitudes = new ArrayList<>();
+    private Coordinates coordinates = new Coordinates();
     private double maxSpeed = 0D;
     private long timeElapsed = 0L;
 
@@ -76,8 +72,7 @@ public class Running extends AppCompatActivity {
                 }
                 currentLatitude = location.getLatitude();
                 currentLongitude = location.getLongitude();
-                longitudes.add(currentLongitude);
-                latitudes.add(currentLatitude);
+                coordinates.addCoordinate(currentLatitude, currentLongitude);
                 TextView distanceDisplay = findViewById(R.id.kilometers);
                 DecimalFormat df = new DecimalFormat("#.##");
                 df.setRoundingMode(RoundingMode.CEILING);
@@ -107,7 +102,7 @@ public class Running extends AppCompatActivity {
     }
 
     private void configureLocation() {
-        locationManager.requestLocationUpdates("gps", 20000, 100, locationListener);
+        locationManager.requestLocationUpdates("gps", 0, 100, locationListener);
 
     }
 
@@ -128,7 +123,7 @@ public class Running extends AppCompatActivity {
         String username = this.getIntent().getExtras().getString("username");
         usersHandler.open();
         runsHandler.open();
-        RunController runner = new RunController(elapsed, distance, usersHandler.getUserByName(username).getId(), longitudes, latitudes);
+        RunController runner = new RunController(elapsed, distance, usersHandler.getUserByName(username).getId());
         runsHandler.insertRun(runner);
         runsHandler.close();
         usersHandler.close();
@@ -140,6 +135,9 @@ public class Running extends AppCompatActivity {
         intent.putExtra("username", username);
         intent.putExtra("distance", distance);
         intent.putExtra("chrono", chrono);
+        Bundle bundleCoordinates = new Bundle();
+        bundleCoordinates.putSerializable("coordinates", coordinates);
+        intent.putExtras(bundleCoordinates);
         startActivity(intent);
     }
 
