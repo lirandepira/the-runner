@@ -63,17 +63,22 @@
             android:id="@+id/chronoresult"/>
         <View
             android:layout_height="fill_parent"
-            android:layout_width="110dp">
+            android:layout_width="80dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:textColor="@color/white_greyish"
             android:id="@+id/distance"/>
     </LinearLayout>
 
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="10dp">
+        <!-- This view adds space between the elements !-->
+    </View>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -81,7 +86,7 @@
     <!-- This view adds a horizontal line between the elements !-->
     <View
         android:layout_width="fill_parent"
-        android:layout_height="10dp">
+        android:layout_height="20dp">
         <!-- This view adds space between the elements !-->
     </View>
 
@@ -101,7 +106,7 @@
             />
         <View
             android:layout_height="fill_parent"
-            android:layout_width="30dp">
+            android:layout_width="55dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
@@ -135,10 +140,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:id="@+id/maxspeed"/>
     </LinearLayout>
 
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="10dp">
+        <!-- This view adds space between the elements !-->
+    </View>
     <View
         android:layout_width="match_parent"
         android:layout_height="1.5dp"

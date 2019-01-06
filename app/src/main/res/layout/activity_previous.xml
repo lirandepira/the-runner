@@ -81,23 +81,25 @@
             android:id="@+id/time1"/>
         <View
             android:layout_height="fill_parent"
-            android:layout_width="110dp">
+            android:layout_width="60dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="20dp"
+            android:textColor="@color/white_greyish"
             android:id="@+id/kilometers1"/>
         <View
             android:layout_height="fill_parent"
-            android:layout_width="110dp">
+            android:layout_width="60dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="20dp"
+            android:textColor="@color/white_greyish"
             android:id="@+id/avgspeed1"/>
     </LinearLayout>
 
@@ -162,24 +164,26 @@
 
         <View
             android:layout_height="fill_parent"
-            android:layout_width="110dp">
+            android:layout_width="60dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="20dp"
+            android:textColor="@color/white_greyish"
             android:id="@+id/kilometers2"/>
 
         <View
             android:layout_height="fill_parent"
-            android:layout_width="110dp">
+            android:layout_width="60dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="20dp"
+            android:textColor="@color/white_greyish"
             android:id="@+id/avgspeed2"/>
 
     </LinearLayout>
@@ -245,24 +249,26 @@
 
         <View
             android:layout_height="fill_parent"
-            android:layout_width="110dp">
+            android:layout_width="60dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="20dp"
+            android:textColor="@color/white_greyish"
             android:id="@+id/kilometers3"/>
 
         <View
             android:layout_height="fill_parent"
-            android:layout_width="110dp">
+            android:layout_width="60dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="20dp"
+            android:textColor="@color/white_greyish"
             android:id="@+id/avgspeed3"/>
 
     </LinearLayout>
@@ -328,24 +334,26 @@
 
         <View
             android:layout_height="fill_parent"
-            android:layout_width="110dp">
+            android:layout_width="60dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="20dp"
+            android:textColor="@color/white_greyish"
             android:id="@+id/kilometers4"/>
 
         <View
             android:layout_height="fill_parent"
-            android:layout_width="110dp">
+            android:layout_width="60dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="20dp"
+            android:textColor="@color/white_greyish"
             android:id="@+id/avgspeed4"/>
 
     </LinearLayout>
