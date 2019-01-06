@@ -3,7 +3,6 @@ package enseirb.fr.therunner;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -12,8 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import org.osmdroid.tileprovider.tilesource.XYTileSource;
-import org.osmdroid.views.overlay.PathOverlay;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapController;
@@ -21,14 +18,12 @@ import org.osmdroid.views.MapView;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.views.overlay.Polyline;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import enseirb.fr.therunner.model.Coordinate;
 import enseirb.fr.therunner.model.Coordinates;
-import enseirb.fr.therunner.util.FiguresUtil;
+import enseirb.fr.therunner.util.FormatUtil;
 
 public class Summary extends AppCompatActivity {
 
@@ -44,13 +39,13 @@ public class Summary extends AppCompatActivity {
         double distance = this.getIntent().getExtras().getDouble("distance");
         long chrono = this.getIntent().getExtras().getLong("chrono");
         TextView chronoView = findViewById(R.id.chronoresult);
-        chronoView.setText(FiguresUtil.formatTime(chrono));
+        chronoView.setText(FormatUtil.formatTime(chrono));
         TextView distanceView = findViewById(R.id.distance);
 
         //end of formatting
-        distanceView.setText(FiguresUtil.formatDistance(distance));
+        distanceView.setText(FormatUtil.formatDistance(distance));
         TextView avgSpeedView = findViewById(R.id.avgspeed);
-        avgSpeedView.setText(FiguresUtil.formatAverageSpeed(distance, chrono));
+        avgSpeedView.setText(FormatUtil.formatAverageSpeed(distance, chrono));
 
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));

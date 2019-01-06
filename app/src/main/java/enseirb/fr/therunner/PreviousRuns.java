@@ -11,7 +11,7 @@ import java.util.List;
 import enseirb.fr.therunner.db.RunController;
 import enseirb.fr.therunner.db.RunsHandler;
 import enseirb.fr.therunner.db.UsersHandler;
-import enseirb.fr.therunner.util.FiguresUtil;
+import enseirb.fr.therunner.util.FormatUtil;
 
 
 public class PreviousRuns extends AppCompatActivity {
@@ -42,58 +42,57 @@ public class PreviousRuns extends AppCompatActivity {
             Toast.makeText(getBaseContext(), "No runs recorded", Toast.LENGTH_SHORT).show();
         }
         else {
-            TextView chronoView1 = findViewById(R.id.time1);
-            long chrono1 = runController.get(0).getTime();
-            chronoView1.setText(FiguresUtil.formatTime(chrono1));
-
-            TextView distanceView1 = findViewById(R.id.kilometers1);
-            double distance1 = runController.get(0).getDistance();
-            distanceView1.setText(FiguresUtil.formatDistance(distance1));
-
-            TextView avgSpeedView1 = findViewById(R.id.avgspeed1);
-            avgSpeedView1.setText(FiguresUtil.formatAverageSpeed(distance1, chrono1));
-
+            int index=0;
+            addRun(R.id.time1,
+                    runController.get(index).getTime(),
+                    R.id.kilometers1,
+                    runController.get(index).getDistance(),
+                    R.id.avgspeed1);
+            index++;
             //view2
             if (size >= 2) {
-                TextView chronoView2 = findViewById(R.id.time2);
-                long chrono2 = runController.get(1).getTime();
-                chronoView2.setText(FiguresUtil.formatTime(chrono2));
-
-                TextView distanceView2 = findViewById(R.id.kilometers2);
-                double distance2 = runController.get(1).getDistance();
-                distanceView2.setText(FiguresUtil.formatDistance(distance2));
-
-                TextView avgSpeedView2 = findViewById(R.id.avgspeed2);
-                avgSpeedView2.setText(FiguresUtil.formatAverageSpeed(distance2, chrono2));
+                addRun(R.id.time2,
+                        runController.get(index).getTime(),
+                        R.id.kilometers2,
+                        runController.get(index).getDistance(),
+                        R.id.avgspeed2);
+                index++;
             }
 
             //view3
             if (size >= 3) {
-                TextView chronoView3 = findViewById(R.id.time3);
-                long chrono3 = runController.get(2).getTime();
-                chronoView3.setText(FiguresUtil.formatTime(chrono3));
-
-                TextView distanceView3 = findViewById(R.id.kilometers3);
-                double distance3 = runController.get(2).getDistance();
-                distanceView3.setText(FiguresUtil.formatDistance(distance3));
-
-                TextView avgSpeedView3 = findViewById(R.id.avgspeed3);
-                avgSpeedView3.setText(FiguresUtil.formatAverageSpeed(distance3, chrono3));
+                addRun(R.id.time3,
+                        runController.get(index).getTime(),
+                        R.id.kilometers3,
+                        runController.get(index).getDistance(),
+                        R.id.avgspeed3);
+                index++;
 
             }
 
             if (size >= 4) {
-                TextView chronoView4 = findViewById(R.id.time4);
-                long chrono4 = runController.get(3).getTime();
-                chronoView4.setText(FiguresUtil.formatTime(chrono4));
-
-                TextView distanceView4 = findViewById(R.id.kilometers4);
-                double distance4 = runController.get(3).getDistance();
-                distanceView4.setText(FiguresUtil.formatDistance(distance4));
-
-                TextView avgSpeedView4 = findViewById(R.id.avgspeed4);
-                avgSpeedView4.setText(FiguresUtil.formatAverageSpeed(distance4, chrono4));
+                addRun(R.id.time4,
+                        runController.get(index).getTime(),
+                        R.id.kilometers4,
+                        runController.get(index).getDistance(),
+                        R.id.avgspeed4);
+                index++;
             }
         }
+    }
+
+    private void addRun(int timeViewId,
+                        long time,
+                        int distanceViewId,
+                        double distance,
+                        int averageSpeedId){
+        TextView chronoView = findViewById(timeViewId);
+        chronoView.setText(FormatUtil.formatTime(time));
+
+        TextView distanceView = findViewById(distanceViewId);
+        distanceView.setText(FormatUtil.formatDistance(distance));
+
+        TextView avgSpeedView = findViewById(averageSpeedId);
+        avgSpeedView.setText(FormatUtil.formatAverageSpeed(distance, time));
     }
 }

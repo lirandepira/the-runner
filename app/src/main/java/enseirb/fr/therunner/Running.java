@@ -21,6 +21,7 @@ import enseirb.fr.therunner.db.RunController;
 import enseirb.fr.therunner.db.RunsHandler;
 import enseirb.fr.therunner.db.UsersHandler;
 import enseirb.fr.therunner.model.Coordinates;
+import enseirb.fr.therunner.util.FormatUtil;
 
 public class Running extends AppCompatActivity {
 
@@ -58,17 +59,16 @@ public class Running extends AppCompatActivity {
                 long lastElapsed = SystemClock.elapsedRealtime() - chronometer.getBase() - timeElapsed;
                 //update total elapsed time.
                 timeElapsed = SystemClock.elapsedRealtime() - chronometer.getBase();
-                if(firstCoordinates){
+                if (firstCoordinates) {
                     firstCoordinates = false;
-                }
-                else {
+                } else {
                     double dlong = (location.getLongitude() - currentLongitude) * radians;
                     double dlat = (location.getLatitude() - currentLatitude) * radians;
                     double a = Math.pow(Math.sin(dlat / 2D), 2D) + Math.cos(currentLatitude * radians)
                             * Math.cos(location.getLatitude() * radians) * Math.pow(Math.sin(dlong / 2D), 2D);
                     double runDistance = 63780.1370D * 2D * Math.atan2(Math.sqrt(a), Math.sqrt(1D - a));
                     double instantSpeed = runDistance / lastElapsed * 3.6;//km/h
-                    if(instantSpeed > maxSpeed){
+                    if (instantSpeed > maxSpeed) {
                         maxSpeed = instantSpeed;
                     }
                     distance += runDistance;
@@ -79,7 +79,7 @@ public class Running extends AppCompatActivity {
                 TextView distanceDisplay = findViewById(R.id.kilometers);
                 DecimalFormat df = new DecimalFormat("#.##");
                 df.setRoundingMode(RoundingMode.CEILING);
-                distanceDisplay.setText(df.format(distance));
+                distanceDisplay.setText(FormatUtil.formatDistance(distance));
                 //Toast.makeText(getBaseContext(), currentLatitude + " : " +currentLongitude, Toast.LENGTH_SHORT).show();
             }
 
@@ -110,16 +110,16 @@ public class Running extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult (int requestCode, String[] permissions, int[] grantResults){
-        switch (requestCode){
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
             case 10:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                     configureLocation();
-                    return;
+                return;
         }
     }
 
-    public void finish (View view){
+    public void finish(View view) {
         chronometer.stop();
         long elapsed = SystemClock.elapsedRealtime() - chronometer.getBase();
         String username = this.getIntent().getExtras().getString("username");
@@ -132,7 +132,7 @@ public class Running extends AppCompatActivity {
         launchSummary(view, username, distance, elapsed);
     }
 
-    public void launchSummary(View view, String username, double distance, long chrono){
+    public void launchSummary(View view, String username, double distance, long chrono) {
         Intent intent = new Intent(this, Summary.class);
         intent.putExtra("username", username);
         intent.putExtra("distance", distance);
@@ -143,4 +143,4 @@ public class Running extends AppCompatActivity {
         startActivity(intent);
     }
 
-    }
+}

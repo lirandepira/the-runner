@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigDecimal;
 
-public class FiguresUtil {
+public class FormatUtil {
 
     public static String formatDistance(double distance) {
         String dist = String.valueOf(distance);
@@ -34,7 +34,17 @@ public class FiguresUtil {
         BigDecimal myremainder = roundThreeCalc.remainder(var3600);
         BigDecimal minutes = myremainder.divide(var60, BigDecimal.ROUND_FLOOR);
         BigDecimal seconds = myremainder.remainder(var60);
-        return hours.toString()+"h"+ minutes.toString()+"m"+seconds.toString()+"s";
+        StringBuilder result = new StringBuilder();
+        if (!hours.equals(BigDecimal.ZERO)){
+            result.append(hours.toString()).append("h ");
+        }
+        if (!minutes.equals(BigDecimal.ZERO)){
+            result.append(minutes.toString()).append("m ");
+        }
+        if (!seconds.equals(BigDecimal.ZERO)){
+            result.append(seconds.toString()).append("s");
+        }
+        return result.toString().trim();
     }
 
 
