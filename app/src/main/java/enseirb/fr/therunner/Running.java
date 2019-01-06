@@ -169,4 +169,9 @@ public class Running extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onBackPressed(){
+        Toast.makeText(getBaseContext(), "You can't go back. Click on Finish if you want to finish the run", Toast.LENGTH_SHORT).show();
+    }
+
 }

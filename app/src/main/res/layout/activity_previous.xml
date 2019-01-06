@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
     android:background="@color/background_color">
 
     <View
@@ -81,7 +83,7 @@
             android:id="@+id/time1"/>
         <View
             android:layout_height="fill_parent"
-            android:layout_width="60dp">
+            android:layout_width="50dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
@@ -92,7 +94,7 @@
             android:id="@+id/kilometers1"/>
         <View
             android:layout_height="fill_parent"
-            android:layout_width="60dp">
+            android:layout_width="50dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
@@ -108,6 +110,11 @@
         android:layout_height="1dp"
         android:background="@color/white_greyish"/>
     <!-- This view adds a horizontal line between the elements !-->
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="30dp">
+        <!-- This view adds space between the elements !-->
+    </View>
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -164,7 +171,7 @@
 
         <View
             android:layout_height="fill_parent"
-            android:layout_width="60dp">
+            android:layout_width="50dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
@@ -176,7 +183,7 @@
 
         <View
             android:layout_height="fill_parent"
-            android:layout_width="60dp">
+            android:layout_width="50dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
@@ -193,6 +200,11 @@
         android:layout_height="1dp"
         android:background="@color/white_greyish"/>
     <!-- This view adds a horizontal line between the elements !-->
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="30dp">
+        <!-- This view adds space between the elements !-->
+    </View>
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -230,7 +242,6 @@
             android:textColor="@color/white_greyish"
             android:textStyle="bold"
             android:text="@string/average_speed"/>
-
     </LinearLayout>
 
     <LinearLayout
@@ -249,7 +260,7 @@
 
         <View
             android:layout_height="fill_parent"
-            android:layout_width="60dp">
+            android:layout_width="50dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
@@ -261,7 +272,7 @@
 
         <View
             android:layout_height="fill_parent"
-            android:layout_width="60dp">
+            android:layout_width="50dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
@@ -270,7 +281,6 @@
             android:textSize="20dp"
             android:textColor="@color/white_greyish"
             android:id="@+id/avgspeed3"/>
-
     </LinearLayout>
 
     <View
@@ -278,6 +288,11 @@
         android:layout_height="1dp"
         android:background="@color/white_greyish"/>
     <!-- This view adds a horizontal line between the elements !-->
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="30dp">
+        <!-- This view adds space between the elements !-->
+    </View>
 
     <LinearLayout
         android:id="@+id/linearLayout7"
@@ -334,7 +349,7 @@
 
         <View
             android:layout_height="fill_parent"
-            android:layout_width="60dp">
+            android:layout_width="50dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
@@ -346,7 +361,7 @@
 
         <View
             android:layout_height="fill_parent"
-            android:layout_width="60dp">
+            android:layout_width="50dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
@@ -355,7 +370,6 @@
             android:textSize="20dp"
             android:textColor="@color/white_greyish"
             android:id="@+id/avgspeed4"/>
-
     </LinearLayout>
 
 </LinearLayout>

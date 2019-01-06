@@ -92,4 +92,9 @@ public class Summary extends AppCompatActivity {
         intent.putExtra("username", this.getIntent().getExtras().getString("username"));
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed(){
+        // setContentView(R.layout.activity_main);
+    }
     }

@@ -63,7 +63,7 @@
             android:id="@+id/chronoresult"/>
         <View
             android:layout_height="fill_parent"
-            android:layout_width="80dp">
+            android:layout_width="85dp">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
@@ -114,9 +114,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white_greyish"
             android:text="@string/max_speed"
-            android:textStyle="bold"
-            />
-
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -132,15 +130,17 @@
             android:textSize="20dp"
             android:textColor="@color/white_greyish"
             android:id="@+id/avgspeed"/>
+
         <View
-            android:layout_height="fill_parent"
-            android:layout_width="150dp">
+            android:layout_width="65dp"
+            android:layout_height="match_parent">
             <!-- This view adds space between the elements !-->
         </View>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
+            android:textColor="@color/white_greyish"
             android:id="@+id/maxspeed"/>
     </LinearLayout>
 
