@@ -41,11 +41,13 @@ public class Summary extends AppCompatActivity {
         TextView chronoView = findViewById(R.id.chronoresult);
         chronoView.setText(FormatUtil.formatTime(chrono));
         TextView distanceView = findViewById(R.id.distance);
-
-        //end of formatting
         distanceView.setText(FormatUtil.formatDistance(distance));
+
         TextView avgSpeedView = findViewById(R.id.avgspeed);
-        avgSpeedView.setText(FormatUtil.formatAverageSpeed(distance, chrono));
+        avgSpeedView.setText(FormatUtil.formatSpeed(distance, chrono));
+
+        TextView maxSpeedView = findViewById(R.id.maxspeed);
+        maxSpeedView.setText(this.getIntent().getExtras().getString("maxspeed"));
 
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));

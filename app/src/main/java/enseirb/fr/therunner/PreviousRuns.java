@@ -93,6 +93,6 @@ public class PreviousRuns extends AppCompatActivity {
         distanceView.setText(FormatUtil.formatDistance(distance));
 
         TextView avgSpeedView = findViewById(averageSpeedId);
-        avgSpeedView.setText(FormatUtil.formatAverageSpeed(distance, time));
+        avgSpeedView.setText(FormatUtil.formatSpeed(distance, time));
     }
 }

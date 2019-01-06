@@ -1,5 +1,6 @@
 package enseirb.fr.therunner;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -8,6 +9,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Chronometer;
@@ -37,7 +39,13 @@ public class Running extends AppCompatActivity {
     private boolean firstCoordinates = true;
     private Coordinates coordinates = new Coordinates();
     private double maxSpeed = 0D;
+    // initial max speed is 0
+    private String maxSpeedString = FormatUtil.formatSpeed(0.0, 1);
     private long timeElapsed = 0L;
+
+    // used for instant speed
+    private long lastTimeElapsed = 0L;
+    private double lastRunDistance = 0L;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +63,7 @@ public class Running extends AppCompatActivity {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
+                double runDistance = 0D;
                 //time Elapsed between two coordinates
                 long lastElapsed = SystemClock.elapsedRealtime() - chronometer.getBase() - timeElapsed;
                 //update total elapsed time.
@@ -66,10 +75,17 @@ public class Running extends AppCompatActivity {
                     double dlat = (location.getLatitude() - currentLatitude) * radians;
                     double a = Math.pow(Math.sin(dlat / 2D), 2D) + Math.cos(currentLatitude * radians)
                             * Math.cos(location.getLatitude() * radians) * Math.pow(Math.sin(dlong / 2D), 2D);
-                    double runDistance = 63780.1370D * 2D * Math.atan2(Math.sqrt(a), Math.sqrt(1D - a));
-                    double instantSpeed = runDistance / lastElapsed * 3.6;//km/h
+                    runDistance = 63780.1370D * 2D * Math.atan2(Math.sqrt(a), Math.sqrt(1D - a));
+
+                    // compute speed since the last point taken by GPS
+                    double instantDistance = runDistance - lastRunDistance;
+                    long instantTimeElapsed = timeElapsed - lastTimeElapsed;
+
+                    double instantSpeed = instantDistance / instantTimeElapsed;
+
                     if (instantSpeed > maxSpeed) {
                         maxSpeed = instantSpeed;
+                        maxSpeedString = FormatUtil.formatSpeed(instantDistance, instantTimeElapsed);
                     }
                     distance += runDistance;
                 }
@@ -80,7 +96,10 @@ public class Running extends AppCompatActivity {
                 DecimalFormat df = new DecimalFormat("#.##");
                 df.setRoundingMode(RoundingMode.CEILING);
                 distanceDisplay.setText(FormatUtil.formatDistance(distance));
-                //Toast.makeText(getBaseContext(), currentLatitude + " : " +currentLongitude, Toast.LENGTH_SHORT).show();
+
+                // save last time elapsed and last distance so that we can recompute instant speed
+                lastTimeElapsed = timeElapsed;
+                lastRunDistance = runDistance;
             }
 
             @Override
@@ -105,6 +124,12 @@ public class Running extends AppCompatActivity {
     }
 
     private void configureLocation() {
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+        }
         locationManager.requestLocationUpdates("gps", 0, 100, locationListener);
 
     }
@@ -137,6 +162,7 @@ public class Running extends AppCompatActivity {
         intent.putExtra("username", username);
         intent.putExtra("distance", distance);
         intent.putExtra("chrono", chrono);
+        intent.putExtra("maxspeed", maxSpeedString);
         Bundle bundleCoordinates = new Bundle();
         bundleCoordinates.putSerializable("coordinates", coordinates);
         intent.putExtras(bundleCoordinates);
