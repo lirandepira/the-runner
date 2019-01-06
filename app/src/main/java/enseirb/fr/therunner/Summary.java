@@ -43,8 +43,6 @@ public class Summary extends AppCompatActivity {
         setContentView(R.layout.activity_summary);
         double distance = this.getIntent().getExtras().getDouble("distance");
         long chrono = this.getIntent().getExtras().getLong("chrono");
-        long minutes = chrono / 60;
-        long seconds = chrono - 60 * minutes;
         TextView chronoView = findViewById(R.id.chronoresult);
         chronoView.setText(FiguresUtil.formatTime(chrono));
         TextView distanceView = findViewById(R.id.distance);
@@ -52,7 +50,7 @@ public class Summary extends AppCompatActivity {
         //end of formatting
         distanceView.setText(FiguresUtil.formatDistance(distance));
         TextView avgSpeedView = findViewById(R.id.avgspeed);
-        avgSpeedView.setText(String.format ("%.2f",averageSpeed(distance, chrono)));
+        avgSpeedView.setText(FiguresUtil.formatAverageSpeed(distance, chrono));
 
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));

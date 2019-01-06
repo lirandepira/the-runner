@@ -51,7 +51,7 @@ public class PreviousRuns extends AppCompatActivity {
             distanceView1.setText(FiguresUtil.formatDistance(distance1));
 
             TextView avgSpeedView1 = findViewById(R.id.avgspeed1);
-            avgSpeedView1.setText(String.format ("%.2f", distance1 * 60 / chrono1));
+            avgSpeedView1.setText(FiguresUtil.formatAverageSpeed(distance1, chrono1));
 
             //view2
             if (size >= 2) {
@@ -64,7 +64,7 @@ public class PreviousRuns extends AppCompatActivity {
                 distanceView2.setText(FiguresUtil.formatDistance(distance2));
 
                 TextView avgSpeedView2 = findViewById(R.id.avgspeed2);
-                avgSpeedView2.setText(FiguresUtil.formatDistance(distance2 * 60 / chrono2));
+                avgSpeedView2.setText(FiguresUtil.formatAverageSpeed(distance2, chrono2));
             }
 
             //view3
@@ -78,7 +78,7 @@ public class PreviousRuns extends AppCompatActivity {
                 distanceView3.setText(FiguresUtil.formatDistance(distance3));
 
                 TextView avgSpeedView3 = findViewById(R.id.avgspeed3);
-                avgSpeedView3.setText(FiguresUtil.formatDistance(distance3 * 60 / chrono3));
+                avgSpeedView3.setText(FiguresUtil.formatAverageSpeed(distance3, chrono3));
 
             }
 
@@ -92,7 +92,7 @@ public class PreviousRuns extends AppCompatActivity {
                 distanceView4.setText(FiguresUtil.formatDistance(distance4));
 
                 TextView avgSpeedView4 = findViewById(R.id.avgspeed4);
-                avgSpeedView4.setText(FiguresUtil.formatDistance(distance4 * 60 / chrono4));
+                avgSpeedView4.setText(FiguresUtil.formatAverageSpeed(distance4, chrono4));
             }
         }
     }

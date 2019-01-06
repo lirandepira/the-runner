@@ -122,7 +122,6 @@ public class Running extends AppCompatActivity {
     public void finish (View view){
         chronometer.stop();
         long elapsed = SystemClock.elapsedRealtime() - chronometer.getBase();
-        long chrono = elapsed/1000;
         String username = this.getIntent().getExtras().getString("username");
         usersHandler.open();
         runsHandler.open();
@@ -130,7 +129,7 @@ public class Running extends AppCompatActivity {
         runsHandler.insertRun(runner);
         runsHandler.close();
         usersHandler.close();
-        launchSummary(view, username, distance, chrono);
+        launchSummary(view, username, distance, elapsed);
     }
 
     public void launchSummary(View view, String username, double distance, long chrono){

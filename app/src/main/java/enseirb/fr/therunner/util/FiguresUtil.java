@@ -36,4 +36,10 @@ public class FiguresUtil {
         BigDecimal seconds = myremainder.remainder(var60);
         return hours.toString()+"h"+ minutes.toString()+"m"+seconds.toString()+"s";
     }
+
+
+    public static String formatAverageSpeed(double kilometers, long milliseconds){
+        double kilomerPerHour = kilometers / (milliseconds/1000) * 3600;
+        return String.format ("%.2f",kilomerPerHour) + "km/h";
+    }
 }
