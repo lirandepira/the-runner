@@ -69,7 +69,7 @@ public class Summary extends AppCompatActivity {
         //end of formatting
         distanceView.setText(df.format(distance));
         TextView avgSpeedView = findViewById(R.id.avgspeed);
-        avgSpeedView.setText(Double.toString(averageSpeed(distance, chrono)));
+        avgSpeedView.setText(String.format ("%.2f",averageSpeed(distance, chrono)));
 
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));

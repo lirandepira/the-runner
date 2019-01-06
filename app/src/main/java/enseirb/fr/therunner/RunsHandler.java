@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RunsHandler {
     private final static int VERSION_BDD = 1;
@@ -36,24 +37,27 @@ public class RunsHandler {
         return db.insert("runs", null, contentValues);
     }
 
-    public ArrayList<RunController> getRuns(int userId){
-        Cursor cursor = db.query("runs", null, null,
-                 null, null, null, null);
-        int nbRuns = cursor.getCount()/4;
+    public List<RunController> getRuns(int userId){
+        String where = "runningUser = "+ userId;
+        String orderBy= "runId desc";
+
+        Cursor cursor = db.query("runs", null, where,
+                 null, null, null, orderBy);
+
+        // get last 4
+        int maxRun = 4;
         ArrayList<RunController> runs = new ArrayList<>();
-        if(nbRuns == 0){
+        if(cursor.getCount() == 0){
             return runs;
         }
-        cursor.moveToFirst();
-        int index = 0;
 
-        // to be checked
-        // cursor is no longer working if there are 2 runs
-        while(nbRuns > 0) {
-            runs.add(new RunController( cursor.getLong(index+1),
-                    cursor.getDouble(index+2), cursor.getInt(index+3)));
-            index+=4;
-            nbRuns--;
+        // needs a max of 4 runs
+        // in addition if we cannot move to next stop there
+        while(maxRun > 0 && cursor.moveToNext()) {
+            runs.add(new RunController( cursor.getLong(cursor.getColumnIndex("time")),
+                    cursor.getDouble(cursor.getColumnIndex("distance")),
+                    cursor.getInt(cursor.getColumnIndex("runningUser"))));
+            maxRun--;
         }
         cursor.close();
         return runs;

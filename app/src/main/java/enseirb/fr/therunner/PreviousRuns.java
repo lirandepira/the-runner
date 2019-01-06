@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class PreviousRuns extends AppCompatActivity {
@@ -31,7 +32,7 @@ public class PreviousRuns extends AppCompatActivity {
     private void setViews(String username) {
         usersHandler.open();
         runsHandler.open();
-        ArrayList<RunController> runController = runsHandler.getRuns(usersHandler.getUserByName(username).getId());
+        List<RunController> runController = runsHandler.getRuns(usersHandler.getUserByName(username).getId());
         runsHandler.close();
         usersHandler.close();
         int size = runController.size();
@@ -42,14 +43,14 @@ public class PreviousRuns extends AppCompatActivity {
         else {
             TextView chronoView1 = findViewById(R.id.time1);
             long chrono1 = runController.get(0).getTime();
-            chronoView1.setText(Long.toString(chrono1));
+            chronoView1.setText(Long.toString( chrono1));
 
             TextView distanceView1 = findViewById(R.id.kilometers1);
             double distance1 = runController.get(0).getDistance();
-            distanceView1.setText(Double.toString(distance1));
+            distanceView1.setText(String.format ("%.2f", distance1));
 
             TextView avgSpeedView1 = findViewById(R.id.avgspeed1);
-            avgSpeedView1.setText(Double.toString(distance1 * 60 / chrono1));
+            avgSpeedView1.setText(String.format ("%.2f", distance1 * 60 / chrono1));
 
             //view2
             if (size >= 2) {
@@ -59,10 +60,10 @@ public class PreviousRuns extends AppCompatActivity {
 
                 TextView distanceView2 = findViewById(R.id.kilometers2);
                 double distance2 = runController.get(1).getDistance();
-                distanceView2.setText(Double.toString(distance2));
+                distanceView2.setText(String.format ("%.2f",distance2));
 
                 TextView avgSpeedView2 = findViewById(R.id.avgspeed2);
-                avgSpeedView2.setText(Double.toString(distance2 * 60 / chrono2));
+                avgSpeedView2.setText(String.format ("%.2f",distance2 * 60 / chrono2));
             }
 
             //view3
@@ -73,10 +74,10 @@ public class PreviousRuns extends AppCompatActivity {
 
                 TextView distanceView3 = findViewById(R.id.kilometers3);
                 double distance3 = runController.get(2).getDistance();
-                distanceView3.setText(Double.toString(distance3));
+                distanceView3.setText(String.format ("%.2f",distance3));
 
                 TextView avgSpeedView3 = findViewById(R.id.avgspeed3);
-                avgSpeedView3.setText(Double.toString(distance3 * 60 / chrono3));
+                avgSpeedView3.setText(String.format ("%.2f",distance3 * 60 / chrono3));
 
             }
 
@@ -87,10 +88,10 @@ public class PreviousRuns extends AppCompatActivity {
 
                 TextView distanceView4 = findViewById(R.id.kilometers4);
                 double distance4 = runController.get(3).getDistance();
-                distanceView4.setText(Double.toString(distance4));
+                distanceView4.setText(String.format ("%.2f",distance4));
 
-                TextView avgSpeedView4 = findViewById(R.id.avgspeed1);
-                avgSpeedView4.setText(Double.toString(distance4 * 60 / chrono4));
+                TextView avgSpeedView4 = findViewById(R.id.avgspeed4);
+                avgSpeedView4.setText(String.format ("%.2f",distance4 * 60 / chrono4));
             }
         }
     }
