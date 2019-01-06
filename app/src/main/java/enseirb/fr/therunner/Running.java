@@ -17,6 +17,9 @@ import android.widget.Toast;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
+import enseirb.fr.therunner.db.RunController;
+import enseirb.fr.therunner.db.RunsHandler;
+import enseirb.fr.therunner.db.UsersHandler;
 import enseirb.fr.therunner.model.Coordinates;
 
 public class Running extends AppCompatActivity {

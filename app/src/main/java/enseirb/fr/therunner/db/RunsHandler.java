@@ -1,4 +1,4 @@
-package enseirb.fr.therunner;
+package enseirb.fr.therunner.db;
 
 import android.content.ContentValues;
 import android.content.Context;

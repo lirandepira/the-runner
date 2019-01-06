@@ -1,4 +1,4 @@
-package enseirb.fr.therunner;
+package enseirb.fr.therunner.db;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;

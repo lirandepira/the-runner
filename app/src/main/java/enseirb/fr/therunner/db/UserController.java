@@ -1,4 +1,4 @@
-package enseirb.fr.therunner;
+package enseirb.fr.therunner.db;
 
 public class UserController {
     private int id;

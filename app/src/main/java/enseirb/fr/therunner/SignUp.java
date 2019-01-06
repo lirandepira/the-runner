@@ -9,6 +9,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import enseirb.fr.therunner.db.UserController;
+import enseirb.fr.therunner.db.UsersHandler;
+
 
 public class SignUp extends AppCompatActivity {
 

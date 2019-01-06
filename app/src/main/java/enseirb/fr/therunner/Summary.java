@@ -28,6 +28,7 @@ import java.util.List;
 
 import enseirb.fr.therunner.model.Coordinate;
 import enseirb.fr.therunner.model.Coordinates;
+import enseirb.fr.therunner.util.FiguresUtil;
 
 public class Summary extends AppCompatActivity {
 
@@ -44,15 +45,12 @@ public class Summary extends AppCompatActivity {
         long chrono = this.getIntent().getExtras().getLong("chrono");
         long minutes = chrono / 60;
         long seconds = chrono - 60 * minutes;
-        String displayChrono = minutes + " : " + seconds;
         TextView chronoView = findViewById(R.id.chronoresult);
-        chronoView.setText(displayChrono);
+        chronoView.setText(FiguresUtil.formatTime(chrono));
         TextView distanceView = findViewById(R.id.distance);
-        //formatting distance display
-        DecimalFormat df = new DecimalFormat("#.##");
-        df.setRoundingMode(RoundingMode.CEILING);
+
         //end of formatting
-        distanceView.setText(df.format(distance));
+        distanceView.setText(FiguresUtil.formatDistance(distance));
         TextView avgSpeedView = findViewById(R.id.avgspeed);
         avgSpeedView.setText(String.format ("%.2f",averageSpeed(distance, chrono)));
 
