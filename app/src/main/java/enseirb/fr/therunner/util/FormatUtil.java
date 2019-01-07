@@ -49,7 +49,7 @@ public class FormatUtil {
 
 
     public static String formatSpeed(double kilometers, long milliseconds){
-        double kilomerPerHour = kilometers / (milliseconds/1000) * 3600;
+        double kilomerPerHour = kilometers / ((double)milliseconds/1000) * 3600;
         return String.format ("%.2f",kilomerPerHour) + "km/h";
     }
 }
